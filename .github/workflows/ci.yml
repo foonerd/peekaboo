@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   check:
-    name: shell, plugin files, languages, tests
+    name: shell, plugin files, languages, examples, tests
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7

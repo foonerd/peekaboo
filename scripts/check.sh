@@ -1,7 +1,8 @@
 #!/bin/bash
 # The workshop pass CI runs: the shell scripts parsed and linted, the
-# plugin's files and its languages checked, and its JavaScript checked and
-# tested. Run it before a commit; nothing ships without it.
+# plugin's files, its languages and the reverse proxy examples checked, and
+# its JavaScript checked and tested. Run it before a commit; nothing ships
+# without it.
 set -euo pipefail
 ROOT=$(CDPATH='' cd -- "$(dirname "$0")/.." && pwd)
 cd "$ROOT"
@@ -35,6 +36,22 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     fi
   done
 fi
+
+echo "check: examples"
+# Every example is read the same way: it is in the table of
+# examples/README.md, and it names the page's address, the player's and the
+# port as the others do, so that what the table's page says about putting
+# one's own in their place holds for each of them.
+examples=0
+for dir in examples/*/; do
+  name=$(basename "$dir")
+  grep -qF "($name/" examples/README.md || { echo "check: examples/README.md has no link to $name/" >&2; exit 1; }
+  for word in music.example.com 192.168.1.50 3080; do
+    grep -rqF "$word" "$dir" || { echo "check: examples/$name does not name $word" >&2; exit 1; }
+  done
+  examples=$((examples + 1))
+done
+echo "$examples examples name the page's address, the player's and the port"
 
 # Node runs the checks of the plugin's files: here where it is installed,
 # else in the node image.
