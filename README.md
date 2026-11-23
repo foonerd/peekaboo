@@ -93,6 +93,8 @@ One Raspberry Pi 5 with Volumio 4.245 and its Manifest interface; Chrome 158 kep
 | nginx 1.31 with `proxy_pass` and nothing else | `https://name/` | finds no player |
 | the same, with the *Public address* set | `https://name/` | works, by polling |
 
+With the way from the proxy back to the browser slowed, the page found its player at round trips of up to 450 ms, in about twelve seconds at that, and not at 500 ms or more.
+
 Other browsers, Volumio's Classic and Contemporary interfaces, and signing in to MyVolumio through a proxy have not been tried.
 
 ## What it does not do
@@ -100,6 +102,7 @@ Other browsers, Volumio's Classic and Contemporary interfaces, and signing in to
 - It asks nobody to sign in and it does not speak https. Both are the proxy's.
 - It does not serve the page under a path. The page needs a host name of its own.
 - Over plain http it wants the proxy on port 80: the page asks its first question there, whatever port it was opened on. Over https any port does.
+- It does not make a slow path quick. Volumio's page gives its socket half a second to connect, so where a round trip between the browser and the proxy takes that long or longer, the page finds no player.
 
 ## Installing
 
