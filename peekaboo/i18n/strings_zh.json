@@ -1,0 +1,27 @@
+{
+    "PEEKABOO": {
+        "PLUGIN_NAME": "Peekaboo",
+        "PLUGIN_CONFIGURATION": "Peekaboo",
+        "SECTION_STATUS": "在此播放器上",
+        "SECTION_STATUS_DOC": "插件开启后，这里会说明 Peekaboo 的端口正在做什么。",
+        "STATE_LISTENING": "正在端口 {{port}} 上监听。请让反向代理把所有请求（包括 WebSocket 连接）转发到 http://{{address}}:{{port}}。",
+        "STATE_FAILED": "未在监听：无法打开端口 {{port}}（{{error}}）。请在下方选择其他端口。",
+        "LAST_NONE": "还没有页面通过它询问过。",
+        "LAST_TOLD": "最近一次询问的页面经由 {{peer}} 而来，得到的回答是播放器位于 {{origin}}。",
+        "SECTION_SETTINGS": "设置",
+        "PORT": "端口",
+        "PORT_DOC": "反向代理转发到的端口：1024 到 65535 之间的数字。Volumio 自己的页面保持原样。",
+        "PUBLIC_ADDRESS": "公开地址",
+        "PUBLIC_ADDRESS_DOC": "请留空：地址会根据浏览器和代理提供的信息，为每个请求单独确定。只有当页面能通过代理打开、随后却找不到播放器时，才按 https://music.example.com 的形式填写；既不传递 Host 标头也不传递 X-Forwarded-Host 的代理会出现这种情况。",
+        "ALLOWED_FROM": "代理地址",
+        "ALLOWED_FROM_DOC": "反向代理发起连接的地址，可以是单个地址或网段（192.168.1.5, 192.168.1.0/24），用逗号分隔。其他任何地址在此端口上都会被拒绝。留空则允许任何地址进入，与 Volumio 自己的页面一样。",
+        "SAVE": "保存",
+        "SAVED": "已保存。正在端口 {{port}} 上监听。",
+        "BAD_PORT": "端口是 1024 到 65535 之间的数字，且不能是 Volumio 自己使用的 3000。未作任何更改。",
+        "PORT_TAKEN": "无法打开端口 {{port}}（{{error}}）。未作任何更改。",
+        "BAD_ADDRESS": "公开地址应写成 https://music.example.com 的形式，名称后面不带任何内容。未作任何更改。",
+        "BAD_ALLOWED": "不是地址，也不是网段：{{entries}}。未作任何更改。",
+        "SECTION_ABOUT": "Peekaboo 的作用",
+        "SECTION_ABOUT_DOC": "Volumio 的页面会询问播放器位于何处，此后只与那个地址通信，而那是播放器自身网络中的地址。因此，通过反向代理、从其他网络或经由 https 打开时，页面能够加载，随后却找不到播放器。Peekaboo 会打开第二个端口。从这个端口进来的内容原样交给 Volumio，而页面的询问则以浏览器进入时所用的地址作答，于是页面继续通过代理通信。Volumio 的任何文件都不会被更改，按通常方式打开的页面照常工作。Volumio 自身没有登录功能：任何能访问页面的人都可以控制播放器并读取其文件。请让反向代理在放行任何人之前先要求登录，切勿在没有登录保护的情况下把此端口转发到互联网。"
+    }
+}

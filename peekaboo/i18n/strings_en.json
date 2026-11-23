@@ -1,0 +1,27 @@
+{
+    "PEEKABOO": {
+        "PLUGIN_NAME": "Peekaboo",
+        "PLUGIN_CONFIGURATION": "Peekaboo",
+        "SECTION_STATUS": "On this player",
+        "SECTION_STATUS_DOC": "What Peekaboo's port is doing is said here when the plugin is on.",
+        "STATE_LISTENING": "Listening on port {{port}}. Have the reverse proxy forward everything to http://{{address}}:{{port}}, WebSocket connections included.",
+        "STATE_FAILED": "Not listening: port {{port}} could not be opened ({{error}}). Choose another port below.",
+        "LAST_NONE": "No page has asked through it yet.",
+        "LAST_TOLD": "The last page that asked, by way of {{peer}}, was told the player is at {{origin}}.",
+        "SECTION_SETTINGS": "Settings",
+        "PORT": "Port",
+        "PORT_DOC": "The port the reverse proxy forwards to: a number from 1024 to 65535. Volumio's own page stays where it is.",
+        "PUBLIC_ADDRESS": "Public address",
+        "PUBLIC_ADDRESS_DOC": "Leave empty: the address is worked out for each request from what the browser and the proxy say. Fill in, as https://music.example.com, only where the page opens through the proxy and then finds no player, which happens with a proxy that passes on neither the Host header nor X-Forwarded-Host.",
+        "ALLOWED_FROM": "Proxy addresses",
+        "ALLOWED_FROM_DOC": "The addresses the reverse proxy connects from, as single addresses or networks (192.168.1.5, 192.168.1.0/24), separated by commas. Every other address is refused on this port. Empty lets every address in, as Volumio's own page does.",
+        "SAVE": "Save",
+        "SAVED": "Saved. Listening on port {{port}}.",
+        "BAD_PORT": "The port is a number from 1024 to 65535, and not 3000, which is Volumio's own. Nothing was changed.",
+        "PORT_TAKEN": "Port {{port}} could not be opened ({{error}}). Nothing was changed.",
+        "BAD_ADDRESS": "The public address is written as https://music.example.com, with nothing after the name. Nothing was changed.",
+        "BAD_ALLOWED": "Not an address or a network: {{entries}}. Nothing was changed.",
+        "SECTION_ABOUT": "What Peekaboo does",
+        "SECTION_ABOUT_DOC": "Volumio's page asks the player where it is and then talks to that address alone, which is an address of the player's own network. Opened through a reverse proxy, from another network or over https, the page therefore loads and then finds no player. Peekaboo opens a second port. What comes in by it goes to Volumio as it is, and the page's question is answered with the address the browser came in by, so the page keeps talking through the proxy. No file of Volumio's is changed, and the page opened the usual way works as before. Volumio has no sign-in of its own: whoever reaches the page controls the player and can read its files. Have the reverse proxy ask for a sign-in before it lets anyone through, and never forward this port to the internet without one."
+    }
+}

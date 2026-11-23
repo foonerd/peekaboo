@@ -1,0 +1,27 @@
+{
+    "name": "peekaboo",
+    "version": "0.1.0",
+    "description": "Volumio's page through a reverse proxy",
+    "main": "index.js",
+    "author": "Just a Nerd",
+    "license": "MIT",
+    "repository": "https://github.com/foonerd/peekaboo",
+    "volumio_info": {
+        "prettyName": "Peekaboo",
+        "icon": "fa-eye",
+        "plugin_type": "system_controller",
+        "os": [
+            "bookworm"
+        ],
+        "architectures": [
+            "amd64",
+            "armhf"
+        ],
+        "details": "Volumio's page, opened through a reverse proxy, loads and then finds no player: it asks the player where it is and is given an address of the player's own network. Peekaboo opens a second port for the proxy to forward to, on which that question is answered with the address the browser came in by. It changes no file of Volumio's, and the page opened the usual way works as before.",
+        "changelog": "0.1.0: First release. A port of its own for a reverse proxy to forward to, on which Volumio's page works over https and from other networks. The port, a public address for proxies that pass none on, and the addresses the proxy may come from are set on the plugin's page."
+    },
+    "engines": {
+        "node": ">=20",
+        "volumio": ">=4"
+    }
+}

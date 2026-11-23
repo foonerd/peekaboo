@@ -1,0 +1,27 @@
+{
+    "PEEKABOO": {
+        "PLUGIN_NAME": "Peekaboo",
+        "PLUGIN_CONFIGURATION": "Peekaboo",
+        "SECTION_STATUS": "En este reproductor",
+        "SECTION_STATUS_DOC": "Lo que hace el puerto de Peekaboo se dice aquí cuando el plugin está activado.",
+        "STATE_LISTENING": "Escuchando en el puerto {{port}}. Haga que el proxy inverso reenvíe todo a http://{{address}}:{{port}}, incluidas las conexiones WebSocket.",
+        "STATE_FAILED": "No está escuchando: no se pudo abrir el puerto {{port}} ({{error}}). Elija otro puerto más abajo.",
+        "LAST_NONE": "Ninguna página ha preguntado todavía a través de él.",
+        "LAST_TOLD": "A la última página que preguntó, a través de {{peer}}, se le dijo que el reproductor está en {{origin}}.",
+        "SECTION_SETTINGS": "Ajustes",
+        "PORT": "Puerto",
+        "PORT_DOC": "El puerto al que reenvía el proxy inverso: un número de 1024 a 65535. La página propia de Volumio sigue donde está.",
+        "PUBLIC_ADDRESS": "Dirección pública",
+        "PUBLIC_ADDRESS_DOC": "Déjelo vacío: la dirección se deduce en cada petición de lo que dicen el navegador y el proxy. Rellénelo, en la forma https://music.example.com, solo si la página se abre a través del proxy y luego no encuentra ningún reproductor, lo que ocurre con un proxy que no transmite ni la cabecera Host ni X-Forwarded-Host.",
+        "ALLOWED_FROM": "Direcciones del proxy",
+        "ALLOWED_FROM_DOC": "Las direcciones desde las que se conecta el proxy inverso, como direcciones sueltas o redes (192.168.1.5, 192.168.1.0/24), separadas por comas. Cualquier otra dirección se rechaza en este puerto. Vacío deja entrar a cualquier dirección, como la página propia de Volumio.",
+        "SAVE": "Guardar",
+        "SAVED": "Guardado. Escuchando en el puerto {{port}}.",
+        "BAD_PORT": "El puerto es un número de 1024 a 65535, y no 3000, que es el de Volumio. No se ha cambiado nada.",
+        "PORT_TAKEN": "No se pudo abrir el puerto {{port}} ({{error}}). No se ha cambiado nada.",
+        "BAD_ADDRESS": "La dirección pública se escribe en la forma https://music.example.com, sin nada después del nombre. No se ha cambiado nada.",
+        "BAD_ALLOWED": "No es una dirección ni una red: {{entries}}. No se ha cambiado nada.",
+        "SECTION_ABOUT": "Qué hace Peekaboo",
+        "SECTION_ABOUT_DOC": "La página de Volumio pregunta al reproductor dónde está y después habla solo con esa dirección, que es una dirección de la red propia del reproductor. Abierta a través de un proxy inverso, desde otra red o por https, la página se carga y luego no encuentra ningún reproductor. Peekaboo abre un segundo puerto. Lo que entra por él pasa a Volumio tal cual, y la pregunta de la página se responde con la dirección por la que llegó el navegador, de modo que la página sigue hablando a través del proxy. No se cambia ningún archivo de Volumio, y la página abierta de la manera habitual funciona como antes. Volumio no tiene inicio de sesión propio: quien llega a la página controla el reproductor y puede leer sus archivos. Haga que el proxy inverso pida un inicio de sesión antes de dejar pasar a nadie, y no reenvíe nunca este puerto a internet sin él."
+    }
+}

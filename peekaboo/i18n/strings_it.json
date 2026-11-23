@@ -1,0 +1,27 @@
+{
+    "PEEKABOO": {
+        "PLUGIN_NAME": "Peekaboo",
+        "PLUGIN_CONFIGURATION": "Peekaboo",
+        "SECTION_STATUS": "Su questo lettore",
+        "SECTION_STATUS_DOC": "Che cosa sta facendo la porta di Peekaboo è detto qui quando il plugin è attivo.",
+        "STATE_LISTENING": "In ascolto sulla porta {{port}}. Fai inoltrare tutto dal reverse proxy a http://{{address}}:{{port}}, connessioni WebSocket comprese.",
+        "STATE_FAILED": "Non in ascolto: non è stato possibile aprire la porta {{port}} ({{error}}). Scegli un'altra porta qui sotto.",
+        "LAST_NONE": "Nessuna pagina ha ancora chiesto attraverso questa porta.",
+        "LAST_TOLD": "All'ultima pagina che ha chiesto, tramite {{peer}}, è stato detto che il lettore si trova a {{origin}}.",
+        "SECTION_SETTINGS": "Impostazioni",
+        "PORT": "Porta",
+        "PORT_DOC": "La porta a cui inoltra il reverse proxy: un numero da 1024 a 65535. La pagina di Volumio resta dov'è.",
+        "PUBLIC_ADDRESS": "Indirizzo pubblico",
+        "PUBLIC_ADDRESS_DOC": "Lascia vuoto: l'indirizzo viene ricavato, a ogni richiesta, da ciò che dicono il browser e il proxy. Compila, nella forma https://music.example.com, solo se la pagina si apre attraverso il proxy e poi non trova alcun lettore, cosa che accade con un proxy che non inoltra né l'intestazione Host né X-Forwarded-Host.",
+        "ALLOWED_FROM": "Indirizzi del proxy",
+        "ALLOWED_FROM_DOC": "Gli indirizzi da cui si collega il reverse proxy, come indirizzi singoli o reti (192.168.1.5, 192.168.1.0/24), separati da virgole. Ogni altro indirizzo viene rifiutato su questa porta. Vuoto lascia entrare qualsiasi indirizzo, come la pagina di Volumio.",
+        "SAVE": "Salva",
+        "SAVED": "Salvato. In ascolto sulla porta {{port}}.",
+        "BAD_PORT": "La porta è un numero da 1024 a 65535, e non 3000, che è quella di Volumio. Non è stato cambiato nulla.",
+        "PORT_TAKEN": "Non è stato possibile aprire la porta {{port}} ({{error}}). Non è stato cambiato nulla.",
+        "BAD_ADDRESS": "L'indirizzo pubblico si scrive nella forma https://music.example.com, senza nulla dopo il nome. Non è stato cambiato nulla.",
+        "BAD_ALLOWED": "Non è un indirizzo né una rete: {{entries}}. Non è stato cambiato nulla.",
+        "SECTION_ABOUT": "Che cosa fa Peekaboo",
+        "SECTION_ABOUT_DOC": "La pagina di Volumio chiede al lettore dove si trova e poi parla solo con quell'indirizzo, che è un indirizzo della rete del lettore. Aperta attraverso un reverse proxy, da un'altra rete o in https, la pagina quindi si carica e poi non trova alcun lettore. Peekaboo apre una seconda porta. Ciò che vi arriva passa a Volumio così com'è, e alla domanda della pagina si risponde con l'indirizzo da cui è arrivato il browser, così la pagina continua a parlare attraverso il proxy. Nessun file di Volumio viene modificato, e la pagina aperta nel modo consueto funziona come prima. Volumio non ha un accesso con credenziali proprio: chi raggiunge la pagina comanda il lettore e può leggerne i file. Fai richiedere un accesso al reverse proxy prima che lasci passare qualcuno, e non inoltrare mai questa porta verso Internet senza."
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "page": {
+        "label": "TRANSLATE.PEEKABOO.PLUGIN_CONFIGURATION"
+    },
+    "sections": [
+        {
+            "id": "section_status",
+            "element": "section",
+            "label": "TRANSLATE.PEEKABOO.SECTION_STATUS",
+            "description": "TRANSLATE.PEEKABOO.SECTION_STATUS_DOC",
+            "icon": "fa-eye",
+            "content": []
+        },
+        {
+            "id": "section_settings",
+            "element": "section",
+            "label": "TRANSLATE.PEEKABOO.SECTION_SETTINGS",
+            "icon": "fa-cogs",
+            "onSave": {
+                "type": "controller",
+                "endpoint": "system_controller/peekaboo",
+                "method": "saveSettings"
+            },
+            "saveButton": {
+                "label": "TRANSLATE.PEEKABOO.SAVE",
+                "data": [
+                    "port",
+                    "public_address",
+                    "allowed_from"
+                ]
+            },
+            "content": [
+                {
+                    "id": "port",
+                    "type": "number",
+                    "element": "input",
+                    "label": "TRANSLATE.PEEKABOO.PORT",
+                    "doc": "TRANSLATE.PEEKABOO.PORT_DOC",
+                    "value": 3080
+                },
+                {
+                    "id": "public_address",
+                    "type": "text",
+                    "element": "input",
+                    "label": "TRANSLATE.PEEKABOO.PUBLIC_ADDRESS",
+                    "doc": "TRANSLATE.PEEKABOO.PUBLIC_ADDRESS_DOC",
+                    "value": ""
+                },
+                {
+                    "id": "allowed_from",
+                    "type": "text",
+                    "element": "input",
+                    "label": "TRANSLATE.PEEKABOO.ALLOWED_FROM",
+                    "doc": "TRANSLATE.PEEKABOO.ALLOWED_FROM_DOC",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "section_about",
+            "element": "section",
+            "label": "TRANSLATE.PEEKABOO.SECTION_ABOUT",
+            "description": "TRANSLATE.PEEKABOO.SECTION_ABOUT_DOC",
+            "icon": "fa-info-circle",
+            "content": []
+        }
+    ]
+}

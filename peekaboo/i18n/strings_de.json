@@ -1,0 +1,27 @@
+{
+    "PEEKABOO": {
+        "PLUGIN_NAME": "Peekaboo",
+        "PLUGIN_CONFIGURATION": "Peekaboo",
+        "SECTION_STATUS": "Auf diesem Player",
+        "SECTION_STATUS_DOC": "Was der Port von Peekaboo gerade tut, steht hier, sobald das Plugin eingeschaltet ist.",
+        "STATE_LISTENING": "Lauscht auf Port {{port}}. Lassen Sie den Reverse-Proxy alles an http://{{address}}:{{port}} weiterleiten, WebSocket-Verbindungen eingeschlossen.",
+        "STATE_FAILED": "Lauscht nicht: Port {{port}} konnte nicht geöffnet werden ({{error}}). Wählen Sie unten einen anderen Port.",
+        "LAST_NONE": "Bisher hat keine Seite darüber angefragt.",
+        "LAST_TOLD": "Der letzten Seite, die anfragte, über {{peer}}, wurde gesagt, der Player sei unter {{origin}} zu erreichen.",
+        "SECTION_SETTINGS": "Einstellungen",
+        "PORT": "Port",
+        "PORT_DOC": "Der Port, an den der Reverse-Proxy weiterleitet: eine Zahl von 1024 bis 65535. Volumios eigene Seite bleibt, wo sie ist.",
+        "PUBLIC_ADDRESS": "Öffentliche Adresse",
+        "PUBLIC_ADDRESS_DOC": "Leer lassen: Die Adresse wird für jede Anfrage aus dem ermittelt, was Browser und Proxy angeben. Nur ausfüllen, in der Form https://music.example.com, wenn die Seite sich über den Proxy öffnet und dann keinen Player findet; das geschieht bei einem Proxy, der weder den Host-Header noch X-Forwarded-Host weitergibt.",
+        "ALLOWED_FROM": "Proxy-Adressen",
+        "ALLOWED_FROM_DOC": "Die Adressen, von denen aus der Reverse-Proxy sich verbindet, als einzelne Adressen oder Netze (192.168.1.5, 192.168.1.0/24), durch Kommas getrennt. Jede andere Adresse wird an diesem Port abgewiesen. Leer lässt jede Adresse herein, wie Volumios eigene Seite.",
+        "SAVE": "Speichern",
+        "SAVED": "Gespeichert. Lauscht auf Port {{port}}.",
+        "BAD_PORT": "Der Port ist eine Zahl von 1024 bis 65535 und nicht 3000, das ist Volumios eigener. Nichts wurde geändert.",
+        "PORT_TAKEN": "Port {{port}} konnte nicht geöffnet werden ({{error}}). Nichts wurde geändert.",
+        "BAD_ADDRESS": "Die öffentliche Adresse wird in der Form https://music.example.com geschrieben, ohne etwas nach dem Namen. Nichts wurde geändert.",
+        "BAD_ALLOWED": "Keine Adresse und kein Netz: {{entries}}. Nichts wurde geändert.",
+        "SECTION_ABOUT": "Was Peekaboo tut",
+        "SECTION_ABOUT_DOC": "Volumios Seite fragt den Player, wo er ist, und spricht dann nur noch mit dieser Adresse, einer Adresse aus dem eigenen Netz des Players. Über einen Reverse-Proxy geöffnet, aus einem anderen Netz oder über https, lädt die Seite deshalb und findet dann keinen Player. Peekaboo öffnet einen zweiten Port. Was dort ankommt, geht unverändert an Volumio, und die Frage der Seite wird mit der Adresse beantwortet, über die der Browser gekommen ist; so spricht die Seite weiter über den Proxy. Keine Datei von Volumio wird geändert, und die auf dem üblichen Weg geöffnete Seite funktioniert wie zuvor. Volumio hat keine eigene Anmeldung: Wer die Seite erreicht, steuert den Player und kann seine Dateien lesen. Lassen Sie den Reverse-Proxy eine Anmeldung verlangen, bevor er jemanden durchlässt, und leiten Sie diesen Port nie ohne eine solche ins Internet weiter."
+    }
+}

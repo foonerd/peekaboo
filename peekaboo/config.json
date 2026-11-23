@@ -1,0 +1,14 @@
+{
+    "port": {
+        "type": "number",
+        "value": 3080
+    },
+    "public_address": {
+        "type": "string",
+        "value": ""
+    },
+    "allowed_from": {
+        "type": "string",
+        "value": ""
+    }
+}

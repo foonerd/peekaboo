@@ -1,0 +1,27 @@
+{
+    "PEEKABOO": {
+        "PLUGIN_NAME": "Peekaboo",
+        "PLUGIN_CONFIGURATION": "Peekaboo",
+        "SECTION_STATUS": "Na tym odtwarzaczu",
+        "SECTION_STATUS_DOC": "Gdy wtyczka jest włączona, tutaj jest podane, co robi port Peekaboo.",
+        "STATE_LISTENING": "Nasłuchuje na porcie {{port}}. Niech reverse proxy przekazuje wszystko na http://{{address}}:{{port}}, łącznie z połączeniami WebSocket.",
+        "STATE_FAILED": "Nie nasłuchuje: nie udało się otworzyć portu {{port}} ({{error}}). Wybierz poniżej inny port.",
+        "LAST_NONE": "Żadna strona jeszcze przez niego nie pytała.",
+        "LAST_TOLD": "Ostatniej stronie, która pytała, przez {{peer}}, podano, że odtwarzacz jest pod adresem {{origin}}.",
+        "SECTION_SETTINGS": "Ustawienia",
+        "PORT": "Port",
+        "PORT_DOC": "Port, na który przekazuje reverse proxy: liczba od 1024 do 65535. Własna strona Volumio zostaje tam, gdzie jest.",
+        "PUBLIC_ADDRESS": "Adres publiczny",
+        "PUBLIC_ADDRESS_DOC": "Zostaw puste: adres jest ustalany dla każdego żądania na podstawie tego, co podają przeglądarka i proxy. Wypełnij, w postaci https://music.example.com, tylko wtedy, gdy strona otwiera się przez proxy, a potem nie znajduje odtwarzacza; dzieje się tak przy proxy, które nie przekazuje ani nagłówka Host, ani X-Forwarded-Host.",
+        "ALLOWED_FROM": "Adresy proxy",
+        "ALLOWED_FROM_DOC": "Adresy, z których łączy się reverse proxy, jako pojedyncze adresy lub sieci (192.168.1.5, 192.168.1.0/24), oddzielone przecinkami. Każdy inny adres jest na tym porcie odrzucany. Puste pole wpuszcza każdy adres, tak jak własna strona Volumio.",
+        "SAVE": "Zapisz",
+        "SAVED": "Zapisano. Nasłuchuje na porcie {{port}}.",
+        "BAD_PORT": "Port to liczba od 1024 do 65535, i nie 3000, który należy do Volumio. Niczego nie zmieniono.",
+        "PORT_TAKEN": "Nie udało się otworzyć portu {{port}} ({{error}}). Niczego nie zmieniono.",
+        "BAD_ADDRESS": "Adres publiczny zapisuje się w postaci https://music.example.com, bez niczego po nazwie. Niczego nie zmieniono.",
+        "BAD_ALLOWED": "To nie adres ani sieć: {{entries}}. Niczego nie zmieniono.",
+        "SECTION_ABOUT": "Co robi Peekaboo",
+        "SECTION_ABOUT_DOC": "Strona Volumio pyta odtwarzacz, gdzie się znajduje, a potem rozmawia już tylko z tym adresem, który jest adresem z własnej sieci odtwarzacza. Otwarta przez reverse proxy, z innej sieci lub przez https, strona ładuje się więc, a potem nie znajduje odtwarzacza. Peekaboo otwiera drugi port. To, co przez niego przychodzi, trafia do Volumio bez zmian, a na pytanie strony odpowiada się adresem, przez który przyszła przeglądarka, więc strona dalej rozmawia przez proxy. Żaden plik Volumio nie jest zmieniany, a strona otwarta w zwykły sposób działa jak dotąd. Volumio nie ma własnego logowania: kto dotrze do strony, steruje odtwarzaczem i może czytać jego pliki. Niech reverse proxy wymaga logowania, zanim kogokolwiek przepuści, i nigdy nie przekierowuj tego portu do internetu bez logowania."
+    }
+}
