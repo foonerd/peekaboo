@@ -1,0 +1,17 @@
+# Traefik, its own configuration: the two ports, plain http sent on to
+# https, and where the routes are (dynamic.yml, beside this file).
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+
+providers:
+  file:
+    filename: /etc/traefik/dynamic.yml

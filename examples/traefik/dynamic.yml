@@ -1,0 +1,38 @@
+# Traefik, the route: Volumio's page at https://music.example.com, by way of
+# Peekaboo on the player at 192.168.1.50, behind a sign-in.
+#
+# Traefik passes on what Peekaboo needs, WebSocket connections included.
+# PASSWORD-HASH is what follows the colon in the line `htpasswd -nB music`
+# prints.
+
+http:
+  routers:
+    volumio:
+      rule: "Host(`music.example.com`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - volumio-sign-in
+      service: volumio
+      tls: {}
+
+  middlewares:
+    volumio-sign-in:
+      basicAuth:
+        users:
+          - "music:PASSWORD-HASH"
+        # The password stops here: the player has no use for it.
+        removeHeader: true
+
+  services:
+    volumio:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.50:3080"
+
+# The certificate, from files. Where Traefik gets certificates by itself,
+# this section goes and the router's `tls` names the resolver.
+tls:
+  certificates:
+    - certFile: /etc/ssl/music.example.com/fullchain.pem
+      keyFile: /etc/ssl/music.example.com/privkey.pem

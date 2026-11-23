@@ -1,0 +1,20 @@
+# Caddy: Volumio's page at https://music.example.com, by way of Peekaboo on
+# the player at 192.168.1.50, behind a sign-in.
+#
+# Caddy gets the certificate by itself, sends plain http on to https and
+# passes on what Peekaboo needs. PASSWORD-HASH is what `caddy hash-password`
+# prints for the password.
+
+music.example.com {
+	# A certificate of your own, in place of the one Caddy gets:
+	# tls /etc/ssl/music.example.com/fullchain.pem /etc/ssl/music.example.com/privkey.pem
+
+	basic_auth {
+		music PASSWORD-HASH
+	}
+
+	reverse_proxy 192.168.1.50:3080 {
+		# The password stops here: the player has no use for it.
+		header_up -Authorization
+	}
+}

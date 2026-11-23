@@ -59,6 +59,8 @@ music.example.com {
 }
 ```
 
+Complete configurations, each with its certificate, its sign-in and plain http sent on to https, are in [examples/](examples/): nginx, Nginx Proxy Manager, Caddy, Apache httpd, Traefik, HAProxy, Envoy and lighttpd.
+
 ## What it does
 
 Peekaboo listens on a port of its own, beside Volumio's. Everything that comes in by it is handed to Volumio on the player as it came, and Volumio's answer is handed back as it is, WebSocket connections included. Two requests it answers itself:
@@ -93,6 +95,8 @@ One Raspberry Pi 5 with Volumio 4.245 and its Manifest interface; Chrome 158 kep
 | nginx 1.31 with `proxy_pass` and nothing else | `https://name/` | finds no player |
 | the same, with the *Public address* set | `https://name/` | works, by polling |
 
+The configurations in [examples/](examples/) were each run the same way behind their sign-in, with nginx 1.31, OpenResty 1.31, Angie 1.12, Nginx Proxy Manager 2.17, Caddy 2.11, Apache httpd 2.4, Traefik 3.7, HAProxy 3.4, Envoy 1.40 and lighttpd 1.4: the page works over a WebSocket through each, and nothing gets past the sign-in without the name and password.
+
 With the way from the proxy back to the browser slowed, the page found its player at round trips of up to 450 ms, in about twelve seconds at that, and not at 500 ms or more.
 
 Other browsers, Volumio's Classic and Contemporary interfaces, and signing in to MyVolumio through a proxy have not been tried.
@@ -125,12 +129,13 @@ Switching the plugin off closes the port and ends the connections through it. Pe
 ## What is where
 
     peekaboo/          the plugin: its listener, its Volumio side, its settings page
+    examples/          a reverse proxy's configuration for each of ten, as run
     test/              the plugin's tests
     scripts/           check, package, release notes
 
 ## Building
 
-    scripts/check.sh     shell lint, the plugin's files and languages, the tests
+    scripts/check.sh     shell lint, the plugin's files and languages, the examples, the tests
     scripts/package.sh   the plugin's zip, into dist/
 
 Node 20 is used where it is installed and the `node:20-slim` container where it is not.
